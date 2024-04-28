@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <style>
+/* Apply Arial font as default and set margin */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Style heading */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    /* Center-align heading */
+    margin-left: 45%;
+}
+
+/* Style form */
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* Style file input */
+input[type="file"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style submit button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect for submit button */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Upload PDF</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file">
+        <button type="submit">Upload PDF</button>
+    </form>
+</body>
+</html>

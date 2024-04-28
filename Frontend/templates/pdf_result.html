@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Result</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+p:last-child {
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <p>{{text}}</p>
+    <h1>Patient Information</h1>
+    <p>Name: {{ patient_info.name }}</p>
+    <p>Age: {{ patient_info.age }}</p>
+    <p>Gender: {{ patient_info.gender }}</p>
+
+    <h2>Blood Test Results</h2>
+    <table border="1">
+        <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Definition</th>
+            <th>Symptoms</th>
+        </tr>
+        {% for item, result in blood_test_results.items %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>{{ result.status }}</td>
+            <td>{{ result.definition }}</td>
+            <td>{{ result.symptoms }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
